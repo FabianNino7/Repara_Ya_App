@@ -14,6 +14,7 @@ namespace Repara_Ya__App
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
+            Console.WriteLine("Bienvenido a tu app");
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
