@@ -5,9 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Repara_Ya__App.Models;
 
-namespace Repara_Ya__App.Controllers
+namespace Repara_Ya__App.Models
 {
     public class HomeController : Controller
     {
