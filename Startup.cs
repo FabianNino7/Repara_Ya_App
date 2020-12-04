@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Repara_Ya__App.Data;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
+using Microsoft.EntityFrameworkCore;
 
 namespace Repara_Ya__App
 {
@@ -23,6 +26,18 @@ namespace Repara_Ya__App
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<DataBaseContext> (
+                dbContextOptions => dbContextOptions
+                    .UseMySql(
+                        // Replace with your connection string.
+                        "server=localhost;port=3306;user=root;password=Lanueva2020!root;database=dbpruebas",
+                        // Replace with your server version and type.
+                        // For common usages, see pull request #1233.
+                        new MySqlServerVersion(new Version(8, 0, 22)
+                        ), // use MariaDbServerVersion for MariaDB
+                        mySqlOptions => mySqlOptions.CharSetBehavior(CharSetBehavior.NeverAppend))
+                        );
+            
             services.AddControllersWithViews();
         }
 
